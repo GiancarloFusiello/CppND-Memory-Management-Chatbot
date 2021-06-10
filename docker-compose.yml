@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  chatbot-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: chatbot-dev
+    image: chatbot-dev
+    ports:
+      - "5900:5900"
+
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: run_app
+    container_name: chatbot
+    image: chatbot
+    ports:
+      - "5900:5900"
